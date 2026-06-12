@@ -1,11 +1,11 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Mail, Phone, MapPin, Send, ArrowLeft, Github, Linkedin, Twitter } from "lucide-react"
+import { Mail, Phone, MapPin, Send, ArrowLeft, Github, Linkedin } from "lucide-react"
 import Link from "next/link"
+import { portfolioData } from "@/src/data/portfolio"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -111,74 +111,80 @@ export default function ContactPage() {
             >
               <div className="mb-12">
                 <div className="w-32 h-32 mx-auto lg:mx-0 mb-6 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center overflow-hidden">
-                  <img src="/profile.png" alt="John Doe" className="w-28 h-28 object-cover rounded-full" />
+                  <img src="/profile.png" alt={portfolioData.about.name} className="w-28 h-28 object-cover rounded-full" />
                 </div>
-                <h2 className="text-3xl font-black mb-2">Farhad Ahmad</h2>
-                <p className="text-purple-300 text-lg">Creative Developer & Designer</p>
+                <h2 className="text-3xl font-black mb-2">{portfolioData.about.name}</h2>
+                <p className="text-purple-300 text-base">{portfolioData.about.role}</p>
               </div>
 
               <div className="space-y-6">
-                <motion.div
-                  className="flex items-center gap-4 p-4 bg-black/30 rounded-lg backdrop-blur-sm"
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <Mail className="text-purple-400" size={24} />
-                  <div>
-                    <p className="font-semibold">Email</p>
-                    <p className="text-purple-200">codewithfarhad@gmail.com</p>
-                  </div>
-                </motion.div>
+                {portfolioData.about.email && (
+                  <motion.div
+                    className="flex items-center gap-4 p-4 bg-black/30 rounded-lg backdrop-blur-sm"
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <Mail className="text-purple-400" size={24} />
+                    <div>
+                      <p className="font-semibold">Email</p>
+                      <p className="text-purple-200">{portfolioData.about.email}</p>
+                    </div>
+                  </motion.div>
+                )}
 
-                <motion.div
-                  className="flex items-center gap-4 p-4 bg-black/30 rounded-lg backdrop-blur-sm"
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <Phone className="text-purple-400" size={24} />
-                  <div>
-                    <p className="font-semibold">Phone</p>
-                    <p className="text-purple-200">+1 (555) 123-4567</p>
-                  </div>
-                </motion.div>
+                {portfolioData.about.phone && (
+                  <motion.div
+                    className="flex items-center gap-4 p-4 bg-black/30 rounded-lg backdrop-blur-sm"
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <Phone className="text-purple-400" size={24} />
+                    <div>
+                      <p className="font-semibold">Phone</p>
+                      <p className="text-purple-200">{portfolioData.about.phone}</p>
+                    </div>
+                  </motion.div>
+                )}
 
-                <motion.div
-                  className="flex items-center gap-4 p-4 bg-black/30 rounded-lg backdrop-blur-sm"
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <MapPin className="text-purple-400" size={24} />
-                  <div>
-                    <p className="font-semibold">Location</p>
-                    <p className="text-purple-200">Faisalabad, Pak</p>
-                  </div>
-                </motion.div>
+                {portfolioData.about.location && (
+                  <motion.div
+                    className="flex items-center gap-4 p-4 bg-black/30 rounded-lg backdrop-blur-sm"
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <MapPin className="text-purple-400" size={24} />
+                    <div>
+                      <p className="font-semibold">Location</p>
+                      <p className="text-purple-200">{portfolioData.about.location}</p>
+                    </div>
+                  </motion.div>
+                )}
               </div>
 
               <div className="pt-8">
                 <h3 className="text-xl font-bold mb-4">Follow Me</h3>
                 <div className="flex gap-4">
-                  <motion.a
-                    href="#"
-                    className="p-3 bg-black/30 rounded-lg backdrop-blur-sm hover:bg-purple-600 transition-colors"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Github size={24} />
-                  </motion.a>
-                  <motion.a
-                    href="#"
-                    className="p-3 bg-black/30 rounded-lg backdrop-blur-sm hover:bg-blue-600 transition-colors"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Linkedin size={24} />
-                  </motion.a>
-                  <motion.a
-                    href="#"
-                    className="p-3 bg-black/30 rounded-lg backdrop-blur-sm hover:bg-blue-400 transition-colors"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Twitter size={24} />
-                  </motion.a>
+                  {portfolioData.about.github && (
+                    <motion.a
+                      href={portfolioData.about.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 bg-black/30 rounded-lg backdrop-blur-sm hover:bg-purple-600 transition-colors"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Github size={24} />
+                    </motion.a>
+                  )}
+                  {portfolioData.about.linkedin && (
+                    <motion.a
+                      href={portfolioData.about.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 bg-black/30 rounded-lg backdrop-blur-sm hover:bg-blue-600 transition-colors"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Linkedin size={24} />
+                    </motion.a>
+                  )}
                 </div>
               </div>
             </motion.div>
