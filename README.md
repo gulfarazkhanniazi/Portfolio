@@ -71,12 +71,4 @@ I built this project for the community, so you can take inspiration, learn from 
 
 ---
 
-<<<<<<< HEAD
 **Happy coding!**
-=======
-<<<<<<< HEAD
-**Happy coding!**
-=======
-**Happy coding!** 
->>>>>>> 104e240 (Initial commit: Animated Portfolio Website)
->>>>>>> 68c47d6 (Initial commit)

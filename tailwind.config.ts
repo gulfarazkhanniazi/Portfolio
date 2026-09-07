@@ -63,11 +63,11 @@ const config: Config = {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        fontFamily: {
-          sans: ["var(--font-inter)", "sans-serif"],
-          // you can add big “sticker” display fonts later, e.g.:
-          // sticker: ['"Bebas Neue"', 'sans-serif'],
-        },
+      },
+      fontFamily: {
+        sans: ["var(--font-inter)", "sans-serif"],
+        // you can add big “sticker” display fonts later, e.g.:
+        // sticker: ['"Bebas Neue"', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",

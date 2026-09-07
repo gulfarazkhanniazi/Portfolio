@@ -185,6 +185,13 @@ export default function ContactPage() {
                       <Linkedin size={24} />
                     </motion.a>
                   )}
+                  <a
+                    href="/Gul Faraz Khan CV.pdf"
+                    download="Gul_Faraz_Khan_CV.pdf"
+                    className="p-3 bg-purple-600/80 rounded-lg backdrop-blur-sm hover:bg-purple-600 transition-colors text-white font-bold text-xs flex items-center gap-2"
+                  >
+                    Download CV
+                  </a>
                 </div>
               </div>
             </motion.div>

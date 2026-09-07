@@ -25,21 +25,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #111;
+  background: #0a0a0a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
+  background: #333344;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
-/* Smooth animations */
-* {
-  transition: all 0.3s ease;
+  background: #7c3aed;
 }
 
 /* Typography */
@@ -54,181 +49,100 @@ h6 {
   letter-spacing: -0.02em;
 }
 
-/* Logo gradient color suggestion */
-.logo-gradient {
-  background: linear-gradient(90deg, #7c3aed 0%, #a259f7 100%);
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Shiny text animation for Hero Title */
+@keyframes shine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shiny-text {
+  background: linear-gradient(110deg, #ffffff 15%, #a855f7 45%, #60a5fa 65%, #ffffff 85%);
+  background-size: 200% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
+  animation: shine 6s linear infinite;
 }
 
-/* Gradient text */
-.gradient-text {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Glitch effect for hero text */
-@keyframes glitch {
-  0% {
-    transform: translate(0);
-  }
-  20% {
-    transform: translate(-2px, 2px);
-  }
-  40% {
-    transform: translate(-2px, -2px);
-  }
-  60% {
-    transform: translate(2px, 2px);
-  }
-  80% {
-    transform: translate(2px, -2px);
-  }
-  100% {
-    transform: translate(0);
-  }
-}
-
-.glitch:hover {
-  animation: glitch 0.3s;
-}
-
-/* Custom cursor */
-.cursor-pointer {
-  cursor: pointer;
-}
-
-/* Parallax container */
-.parallax-container {
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  perspective: 1px;
-}
-
-.parallax-element {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-.parallax-back {
-  transform: translateZ(-1px) scale(2);
-}
-
-.parallax-base {
-  transform: translateZ(0);
-}
-
-/* Loading animation */
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
+/* Animated gradient border glow */
+@keyframes border-glow-anim {
+  0%, 100% {
+    border-color: rgba(168, 85, 247, 0.4);
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
   }
   50% {
-    opacity: 0.5;
+    border-color: rgba(59, 130, 246, 0.6);
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.3);
   }
 }
 
-.animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+.border-glow {
+  animation: border-glow-anim 4s ease-in-out infinite;
 }
 
-/* Hover effects */
-.hover-lift {
-  transition: transform 0.3s ease;
+/* Hero background blob animations */
+@keyframes blob1 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
 }
 
-.hover-lift:hover {
-  transform: translateY(-5px);
+@keyframes blob2 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(-40px, 30px) scale(1.15);
+  }
+  66% {
+    transform: translate(25px, -30px) scale(0.85);
+  }
 }
 
-/* Background patterns */
-.bg-grid {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-  background-size: 20px 20px;
+.animate-blob1 {
+  animation: blob1 10s ease-in-out infinite;
 }
 
-/* Neon glow effect */
-.neon-glow {
-  box-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor, 0 0 20px currentColor;
+.animate-blob2 {
+  animation: blob2 12s ease-in-out infinite;
 }
 
-/* Floating animation */
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
+/* Floating dot animation */
+@keyframes float-dot {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.3;
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-25px) translateX(15px);
+    opacity: 0.8;
   }
 }
 
-.animate-float {
-  animation: float 3s ease-in-out infinite;
+.animate-float-dot {
+  animation: float-dot 4s ease-in-out infinite;
 }
 
-/* Stagger animation delays */
-.stagger-1 {
-  animation-delay: 0.1s;
-}
-.stagger-2 {
-  animation-delay: 0.2s;
-}
-.stagger-3 {
-  animation-delay: 0.3s;
-}
-.stagger-4 {
-  animation-delay: 0.4s;
-}
-.stagger-5 {
-  animation-delay: 0.5s;
-}
-
-.midnight-glow {
-  text-shadow:
-    0 0 8px #a259f7,
-    0 0 16px #a259f7,
-    0 0 32px #a259f7,
-    0 0 64px #a259f7;
-  color: #fff;
-}
-
-@keyframes zebra-stripes {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 320px 320px;
-  }
-}
-
-.animate-zebra-stripes {
-  animation: zebra-stripes 12s linear infinite;
-}
-
-.realism-black {
-  background: linear-gradient(180deg, #232526 0%, #0f0f0f 100%);
-  color: #fff;
-  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.7), 0 1.5px 0 0 #444 inset;
-  border-radius: 12px;
-  padding: 0.25em 0.75em;
-  display: inline-block;
-  font-weight: 900;
-  letter-spacing: 0.04em;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.7), 0 1px 0 #fff2;
-}
-
-/* Smooth zebra stripe animation for EXPERIENCE section */
+/* Smooth zebra stripe animation for Journey section */
 @keyframes zebra-move {
   0% {
     background-position: 0 0;
@@ -244,69 +158,24 @@ h6 {
   background-size: 120px 120px;
 }
 
-/* Traveling shadow animation for hero name */
-@keyframes traveling-shadow {
-  0% {
-    text-shadow: 0 0 0 #a259f7, 0 0 0 #fff;
-  }
-  20% {
-    text-shadow: 4px 0 16px #a259f7, 0 0 0 #fff;
-  }
-  40% {
-    text-shadow: 0 4px 24px #fff, 0 0 0 #a259f7;
-  }
-  60% {
-    text-shadow: -4px 0 16px #a259f7, 0 0 0 #fff;
-  }
-  80% {
-    text-shadow: 0 -4px 24px #fff, 0 0 0 #a259f7;
-  }
-  100% {
-    text-shadow: 0 0 0 #a259f7, 0 0 0 #fff;
-  }
-}
-
-.traveling-shadow {
-  animation: traveling-shadow 2.5s linear infinite;
-}
-
-/* Shiny sweep effect for hero name */
-@keyframes shine {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-.shiny-text {
-  background: linear-gradient(110deg, #fff 10%, #a259f7 40%, #fff 60%);
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-  animation: shine 5s linear infinite;
-}
-
+/* Jelly green button */
 .jelly-green-btn {
   background: linear-gradient(135deg, #baff39 0%, #4de94c 100%);
-  color: #fff;
+  color: #000;
   border: none;
   border-radius: 2.5rem;
-  box-shadow: 0 8px 32px 0 rgba(186,255,57,0.18), 0 2.5px 0 0 #4de94c inset, 0 1rem 2.5rem 0 rgba(77,233,76,0.13);
+  box-shadow: 0 8px 32px 0 rgba(186,255,57,0.25), 0 2.5px 0 0 #4de94c inset;
   font-weight: 900;
   letter-spacing: 0.04em;
-  padding: 1.5rem 3rem;
-  font-size: 1.25rem;
+  padding: 1.25rem 2.75rem;
+  font-size: 1.15rem;
   cursor: pointer;
   transition: transform 0.2s cubic-bezier(.22,1.61,.36,1), box-shadow 0.2s;
   outline: none;
   position: relative;
   overflow: hidden;
 }
-/* Jelly gloss overlay */
+
 .jelly-green-btn::after {
   content: '';
   position: absolute;
@@ -318,9 +187,9 @@ h6 {
   border-radius: 2.5rem;
   pointer-events: none;
   mix-blend-mode: screen;
-  transition: opacity 0.2s;
 }
+
 .jelly-green-btn:hover, .jelly-green-btn:focus {
-  transform: scale(1.08) skewX(-4deg);
-  box-shadow: 0 12px 40px 0 rgba(186,255,57,0.22), 0 3.5px 0 0 #4de94c inset, 0 1.5rem 3rem 0 rgba(77,233,76,0.18);
+  transform: scale(1.06) skewX(-2deg);
+  box-shadow: 0 12px 40px 0 rgba(186,255,57,0.35), 0 3.5px 0 0 #4de94c inset;
 }
