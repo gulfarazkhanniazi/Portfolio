@@ -12,25 +12,25 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v4
 
-      - name: Configure Aws Credentials
-        uses: appleboy/ssh-action@v1.2.0
-        with:
-          host: ${{ secrets.AWS_HOST }}
-          username: ubuntu
-          key: ${{ secrets.AWS_KEY }}
-          script: |
-            cd /home/ubuntu/Portfolio
+    - name: Configure Aws Credentials
+      uses: appleboy/ssh-action@v1.2.0
+      with:
+        host: ${{ secrets.AWS_HOST }}
+        username: ubuntu
+        key: ${{ secrets.AWS_KEY }}
+        script: |
+          cd /home/ubuntu/Portfolio
 
-            echo "Pulling latest Code from GitHub"
-            git pull origin main
-            
-            # docker build -t portfolio:latest .
-            # docker stop portfolio || true
-            # docker rm portfolio || true
-            # docker run -d -p 80:80 --name portfolio portfolio:latest
+          echo "Pulling latest Code from GitHub"
+          git pull origin main
+          
+          # docker build -t portfolio:latest .
+          # docker stop portfolio || true
+          # docker rm portfolio || true
+          # docker run -d -p 80:80 --name portfolio portfolio:latest
 
-            npm install
-            npm run build
-            pm2 restart portfolio || pm2 start npm --name portfolio -- start
+          npm install
+          npm run build
+          pm2 restart portfolio || pm2 start npm --name portfolio -- start
 
-            echo "Deployment completed successfully!"
+          echo "Deployment completed successfully!"
