@@ -75,3 +75,6 @@ Desktop.ini
 .turbo/
 terraform-ec2/
 my-key.pem
+
+# terraform
+terraform
