@@ -31,7 +31,7 @@ jobs:
           # docker rm portfolio || true
           # docker run -d -p 80:80 --name portfolio portfolio:latest
 
-          # Install dependencies and build the project
+          # Install dependencies and build project
           npm ci
           npm run build
           pm2 restart portfolio
