@@ -26,15 +26,15 @@ jobs:
           echo "Pulling latest Code from GitHub"
           git pull --ff-only origin main
           
-          # docker build -t portfolio:latest .
-          # docker stop portfolio || true
-          # docker rm portfolio || true
-          # docker run -d -p 80:80 --name portfolio portfolio:latest
+          docker build -t portfolio:latest .
+          docker stop portfolio || true
+          docker rm -f portfolio || true
+          docker run -d --restart unless-stopped -p 3000:3000 --name portfolio portfolio:latest
 
           # Install dependencies and build the project
-          npm ci
-          npm run build
-          pm2 restart portfolio
-          pm2 save
+          # npm ci
+          # npm run build
+          # pm2 restart portfolio
+          # pm2 save
 
           echo "Deployment completed successfully!"
